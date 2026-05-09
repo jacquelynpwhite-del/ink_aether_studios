@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ink & Aether Studios — Brand & Visual Identity Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #0E0C0A;
+    --deep: #1A1714;
+    --charcoal: #2B2723;
+    --iron: #4A4540;
+    --ash: #7A746D;
+    --fog: #B5AFA8;
+    --parchment: #EDE7DC;
+    --cream: #F7F3ED;
+    --gold: #C9A96E;
+    --gold-light: #DEC48A;
+    --gold-dark: #A07840;
+    --white: #FDFAF6;
+    --rule: rgba(201, 169, 110, 0.35);
+    --rule-strong: rgba(201, 169, 110, 0.7);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--void);
+    color: var(--parchment);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    background: var(--void);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(201,169,110,0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cover-ornament {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 48px;
+    opacity: 0.9;
+  }
+
+  .cover-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .cover-title {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--fog);
+    margin-bottom: 56px;
+    font-weight: 300;
+  }
+
+  .cover-rule {
+    width: 120px;
+    height: 1px;
+    background: var(--rule-strong);
+    margin: 0 auto 40px;
+  }
+
+  .cover-meta {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ash);
+    text-transform: uppercase;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--deep);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+
+  nav .nav-brand {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav ul a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ash);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--gold); }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── SECTION STRUCTURE ── */
+  .section {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section:last-of-type { border-bottom: none; }
+
+  .section-number {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .section-lead {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--fog);
+    margin-bottom: 56px;
+    max-width: 680px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 52px 0;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .divider-mark {
+    color: var(--gold);
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  /* ── SUBSECTIONS ── */
+  .subsection {
+    margin-bottom: 64px;
+  }
+
+  .subsection-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h4 {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 12px;
+    margin-top: 32px;
+  }
+
+  p {
+    color: var(--parchment);
+    margin-bottom: 16px;
+    font-size: 17px;
+  }
+
+  /* ── BLOCKQUOTE / BRAND STATEMENT ── */
+  .brand-statement {
+    border-left: 2px solid var(--gold);
+    padding: 28px 40px;
+    margin: 48px 0;
+    background: rgba(201,169,110,0.04);
+  }
+
+  .brand-statement p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.65;
+    margin-bottom: 0;
+    font-weight: 300;
+  }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 15px;
+  }
+
+  th {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule-strong);
+    font-weight: 600;
+  }
+
+  td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--parchment);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  td:first-child {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    white-space: nowrap;
+  }
+
+  td em {
+    font-style: italic;
+    color: var(--fog);
+    font-size: 14px;
+  }
+
+  /* ── COLOR SWATCHES ── */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .swatch-card {
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+
+  .swatch-color {
+    height: 72px;
+    width: 100%;
+  }
+
+  .swatch-info {
+    padding: 14px 16px;
+    background: var(--deep);
+  }
+
+  .swatch-name {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 15px;
+    color: var(--cream);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .swatch-hex {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .swatch-role {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    color: var(--ash);
+    display: block;
+    line-height: 1.4;
+  }
+
+  /* ── TYPOGRAPHY SPECIMENS ── */
+  .type-specimen {
+    padding: 36px 40px;
+    border: 1px solid var(--rule);
+    margin: 20px 0;
+    background: var(--deep);
+  }
+
+  .type-specimen .specimen-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .specimen-garamond-display {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.1;
+  }
+
+  .specimen-garamond-text {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--parchment);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-top: 16px;
+  }
+
+  .specimen-raleway {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 16px;
+  }
+
+  .specimen-cormorant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px;
+    font-style: italic;
+    color: var(--parchment);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* ── LOGO CONCEPT ── */
+  .logo-concept {
+    padding: 64px 48px;
+    border: 1px solid var(--rule);
+    text-align: center;
+    margin: 40px 0;
+    background: var(--deep);
+    position: relative;
+  }
+
+  .logo-concept::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 60%);
+  }
+
+  .logo-mark {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 32px;
+  }
+
+  .logo-concept-name {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--cream);
+    display: block;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .logo-concept-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    position: relative;
+  }
+
+  /* ── RULE LISTS ── */
+  .rule-list {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .rule-list li {
+    padding: 12px 0 12px 28px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    color: var(--parchment);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .rule-list li:last-child { border-bottom: none; }
+
+  .rule-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 13px;
+  }
+
+  .rule-list.do-list li::before { content: '✓'; color: var(--gold); }
+  .rule-list.dont-list li::before { content: '✗'; color: var(--iron); }
+  .rule-list.dont-list li { color: var(--ash); }
+
+  /* ── CONTEXT CALLOUT ── */
+  .callout {
+    padding: 28px 36px;
+    border-left: 2px solid var(--gold);
+    background: rgba(201,169,110,0.05);
+    margin: 40px 0;
+  }
+
+  .callout-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .callout p {
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--parchment);
+  }
+
+  /* ── IMPRINT COMPARISON ── */
+  .imprint-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0;
+  }
+
+  .imprint-card {
+    background: var(--deep);
+    padding: 28px 24px;
+  }
+
+  .imprint-card-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .imprint-card-name {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 20px;
+    color: var(--cream);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .imprint-card p {
+    font-size: 14px;
+    color: var(--fog);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* ── APPEARANCE CONTEXTS ── */
+  .context-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 32px 0;
+  }
+
+  .context-card {
+    border: 1px solid var(--rule);
+    padding: 28px;
+  }
+
+  .context-card-phase {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .context-card-title {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .context-card p {
+    font-size: 14px;
+    color: var(--fog);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* ── ASSET CHECKLIST ── */
+  .checklist {
+    margin: 24px 0;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .checklist-item:last-child { border-bottom: none; }
+
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--iron);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .check-label {
+    font-size: 15px;
+    color: var(--parchment);
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  .check-note {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    color: var(--ash);
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    padding: 64px 0 80px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+
+  .doc-footer .footer-ornament {
+    color: var(--gold);
+    font-size: 18px;
+    display: block;
+    margin-bottom: 24px;
+    letter-spacing: 0.4em;
+    opacity: 0.6;
+  }
+
+  .doc-footer p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 0;
+  }
+
+  /* ── PRINT / RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .page { padding: 0 24px; }
+    nav ul { display: none; }
+    .imprint-grid { grid-template-columns: 1fr; }
+    .context-grid { grid-template-columns: 1fr; }
+    .palette-grid { grid-template-columns: repeat(2, 1fr); }
+    .brand-statement { padding: 20px 24px; }
+    .logo-concept { padding: 40px 24px; }
+  }
+
+  @media print {
+    nav { display: none; }
+    .cover { min-height: auto; padding: 60px 40px; }
+    .section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     COVER
+══════════════════════════════════════ -->
+<div class="cover">
+  <!-- SVG logo mark: inkwell + rising aether smoke, stylized -->
+  <svg class="cover-ornament" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Inkwell body -->
+    <rect x="22" y="46" width="36" height="22" rx="3" fill="none" stroke="#C9A96E" stroke-width="1.2"/>
+    <!-- Inkwell neck -->
+    <rect x="28" y="40" width="24" height="8" rx="1.5" fill="none" stroke="#C9A96E" stroke-width="1.2"/>
+    <!-- Inkwell opening -->
+    <ellipse cx="40" cy="40" rx="10" ry="2.5" stroke="#C9A96E" stroke-width="1.2"/>
+    <!-- Hatching on inkwell body -->
+    <line x1="29" y1="52" x2="29" y2="66" stroke="#C9A96E" stroke-width="0.6" opacity="0.4"/>
+    <line x1="34" y1="52" x2="34" y2="66" stroke="#C9A96E" stroke-width="0.6" opacity="0.4"/>
+    <line x1="39" y1="52" x2="39" y2="66" stroke="#C9A96E" stroke-width="0.6" opacity="0.4"/>
+    <line x1="44" y1="52" x2="44" y2="66" stroke="#C9A96E" stroke-width="0.6" opacity="0.4"/>
+    <line x1="49" y1="52" x2="49" y2="66" stroke="#C9A96E" stroke-width="0.6" opacity="0.4"/>
+    <!-- Rising aether smoke wisps -->
+    <path d="M34 38 C32 30 38 26 36 18 C34 10 40 6 38 2" stroke="#C9A96E" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.8"/>
+    <path d="M40 37 C38 28 44 24 42 16 C40 8 46 4 44 0" stroke="#C9A96E" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.9"/>
+    <path d="M46 38 C48 30 43 27 45 20 C47 13 44 10 46 5" stroke="#C9A96E" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <!-- Small stars in the smoke -->
+    <circle cx="37" cy="14" r="1" fill="#C9A96E" opacity="0.5"/>
+    <circle cx="43" cy="8" r="1.2" fill="#C9A96E" opacity="0.6"/>
+    <circle cx="47" cy="18" r="0.8" fill="#C9A96E" opacity="0.4"/>
+    <!-- Wax seal to the right of inkwell, small -->
+    <circle cx="66" cy="60" r="8" fill="none" stroke="#C9A96E" stroke-width="1.2"/>
+    <circle cx="66" cy="60" r="5" fill="none" stroke="#C9A96E" stroke-width="0.6" opacity="0.5"/>
+    <!-- Quill resting against seal -->
+    <line x1="58" y1="54" x2="62" y2="68" stroke="#C9A96E" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+    <path d="M58 54 C55 50 57 47 59 48 C61 49 60 52 58 54Z" fill="#C9A96E" opacity="0.5"/>
+  </svg>
+
+  <div class="cover-label">Ink & Aether Studios · Internal Reference</div>
+  <h1 class="cover-title">Brand &amp; Visual<br>Identity Guide</h1>
+  <p class="cover-subtitle">The Studio Standard — Parent Brand · Imprint Architecture · Voice &amp; Presence</p>
+  <div class="cover-rule"></div>
+  <div class="cover-meta">Ink &amp; Aether Studios · Literary Press · Version 1.0 · 2026</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════ -->
+<nav>
+  <span class="nav-brand">Ink &amp; Aether Studios</span>
+  <ul>
+    <li><a href="#identity">Identity</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#color">Color</a></li>
+    <li><a href="#typography">Type</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#imprints">Imprints</a></li>
+    <li><a href="#presence">Presence</a></li>
+    <li><a href="#assets">Assets</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — STUDIO IDENTITY
+══════════════════════════════════════ -->
+<div class="page">
+<section class="section" id="identity">
+  <span class="section-number">Section 01 — Studio Identity</span>
+  <h2 class="section-title">What Ink &amp; Aether Studios Is</h2>
+  <p class="section-lead">Not an author. Not a platform. A standard.</p>
+
+  <div class="brand-statement">
+    <p>Ink &amp; Aether Studios publishes fiction where worlds feel inevitable — like they were always real and you only just found them. Every title, every author, every story under this imprint shares one promise: someone made this on purpose.</p>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">The Studio Model — What It Is and Isn't</div>
+    <p>Ink &amp; Aether Studios operates as a boutique literary press — not a co-author brand, not a "presents" label, and not a secondary pen name. Think Pixar, not Disney Presents. Think Criterion Collection, not Adapted from a Book By. The studio name does not lend credibility to a project; it <em>certifies</em> it.</p>
+    <p>When a reader sees the Ink &amp; Aether colophon, they are not being told who wrote the book. They are being told something about what kind of book it is — the care behind it, the intention in it, the craft standard it was held to.</p>
+    <p>The studio currently houses three pen names: J.P. White, Jade Black, and Indigo Winter. Each is a distinct imprint with its own brand identity. The studio is the structure they all live inside — and the structure is invisible until readers learn to recognize it.</p>
+  </div>
+
+  <div class="divider"><span class="divider-mark">✦</span></div>
+
+  <div class="subsection">
+    <div class="subsection-title">The Studio in Five Words</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>What It Means in Practice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Inevitable</td><td>Every world feels like it existed before the first page. The author found it; they didn't invent it.</td></tr>
+        <tr><td>Intentional</td><td>Nothing in an Ink &amp; Aether title is accidental. Craft is not decoration — it is the engine.</td></tr>
+        <tr><td>Independent</td><td>Debt-free, schedule-owned, reader-first. Built to last, not to scale fast.</td></tr>
+        <tr><td>Immersive</td><td>The reader disappears into the work. Every title reaches for that. Most of them get there.</td></tr>
+        <tr><td>Unhurried</td><td>This press does not rush its books or its readers. Quality has a pace. We trust it.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">The Studio Promise</div>
+    <p>There is one thing every Ink &amp; Aether title must earn before it carries the colophon:</p>
+
+    <div class="brand-statement">
+      <p>Does this world feel like it was already real before we arrived? If yes: this is an Ink &amp; Aether Studios book.</p>
+    </div>
+
+    <p>This question applies regardless of genre. A cozy gothic mystery in the Blue Ridge Mountains must feel as geographically inevitable as a solarpunk Neo-Egyptian fantasy. A romantic suspense must feel as emotionally real as a hard-science thriller. The promise is not about tone or subject — it is about the specific gravity of fully-built worlds.</p>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Studio Personality — What Every Studio Asset Conveys</div>
+    <ul class="rule-list">
+      <li><strong>Quiet authority.</strong> The studio does not announce itself. It is noticed.</li>
+      <li><strong>Craft-first confidence.</strong> The work is good enough to let silence do the marketing.</li>
+      <li><strong>Archival permanence.</strong> Built like something meant to still be here in twenty years.</li>
+      <li><strong>Human scale.</strong> One founder. Three pen names. Six books a year at most. That is a feature, not a limitation.</li>
+      <li><strong>Zero performance.</strong> The studio does not perform busyness, productivity, or hustle. It publishes books and leaves it at that.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — LOGO & MARK
+══════════════════════════════════════ -->
+<section class="section" id="logo">
+  <span class="section-number">Section 02 — Logo &amp; Mark</span>
+  <h2 class="section-title">The Studio Mark</h2>
+  <p class="section-lead">An inkwell. Rising aether. A wax seal. The tools of the trade, held in the moment before the first word.</p>
+
+  <div class="logo-concept">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 120" width="120" height="120" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 24px;">
+        <!-- Inkwell body with decorative etching -->
+        <rect x="32" y="72" width="52" height="32" rx="4" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+        <!-- Etching lines -->
+        <line x1="40" y1="78" x2="40" y2="102" stroke="#C9A96E" stroke-width="0.7" opacity="0.35"/>
+        <line x1="48" y1="78" x2="48" y2="102" stroke="#C9A96E" stroke-width="0.7" opacity="0.35"/>
+        <line x1="56" y1="78" x2="56" y2="102" stroke="#C9A96E" stroke-width="0.7" opacity="0.35"/>
+        <line x1="64" y1="78" x2="64" y2="102" stroke="#C9A96E" stroke-width="0.7" opacity="0.35"/>
+        <line x1="72" y1="78" x2="72" y2="102" stroke="#C9A96E" stroke-width="0.7" opacity="0.35"/>
+        <!-- Neck -->
+        <rect x="40" y="62" width="36" height="12" rx="2" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+        <!-- Opening ellipse -->
+        <ellipse cx="58" cy="62" rx="16" ry="4" stroke="#C9A96E" stroke-width="1.5"/>
+        <!-- Rising smoke/aether wisps — three tendrils -->
+        <path d="M48 58 C44 44 52 38 49 26 C46 14 52 8 50 2" stroke="#C9A96E" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.85"/>
+        <path d="M58 56 C54 42 62 36 59 22 C56 10 62 5 60 0" stroke="#C9A96E" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.95"/>
+        <path d="M68 58 C72 44 64 38 67 26 C70 14 65 8 67 2" stroke="#C9A96E" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.85"/>
+        <!-- Constellation points in the aether smoke -->
+        <circle cx="50" cy="20" r="1.5" fill="#C9A96E" opacity="0.6"/>
+        <circle cx="60" cy="12" r="2" fill="#C9A96E" opacity="0.7"/>
+        <circle cx="67" cy="20" r="1.2" fill="#C9A96E" opacity="0.5"/>
+        <circle cx="55" cy="32" r="1" fill="#C9A96E" opacity="0.4"/>
+        <!-- Wax seal — right of inkwell -->
+        <circle cx="100" cy="90" r="14" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+        <circle cx="100" cy="90" r="10" fill="none" stroke="#C9A96E" stroke-width="0.7" opacity="0.5"/>
+        <!-- Small I&A monogram in seal -->
+        <text x="100" y="94" font-family="Georgia, serif" font-size="8" fill="#C9A96E" text-anchor="middle" opacity="0.8" font-style="italic">I&amp;A</text>
+        <!-- Quill resting against seal -->
+        <line x1="86" y1="78" x2="90" y2="102" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+        <path d="M86 78 C82 72 84 68 87 70 C90 71 89 75 86 78Z" fill="#C9A96E" opacity="0.55"/>
+      </svg>
+    </div>
+    <span class="logo-concept-name">Ink &amp; Aether Studios</span>
+    <span class="logo-concept-sub">Literary Press</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-label">Design Brief Note</span>
+    <p>The mark above is a working compositional reference. The production logo should be commissioned as a vector asset in Canva or via a logo designer using this brief as the specification. Once finalized, store all four versions (Primary Dark, Reversed Light, Single Color, Embossed/Stamp) in the Ink &amp; Aether Brand Assets folder.</p>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Logo Mark — Component Description</div>
+    <table>
+      <thead>
+        <tr><th>Element</th><th>Visual Description</th><th>Symbolic Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The Inkwell</td>
+          <td>Ornate glass or ceramic inkwell with cross-hatched etching texture — scholarly, historical, precise</td>
+          <td>The craft of writing. The tangible, disciplined act of making worlds from language.</td>
+        </tr>
+        <tr>
+          <td>The Rising Aether</td>
+          <td>Three swirling smoke tendrils rising from the inkwell's open mouth, dissolving into constellation points above</td>
+          <td>The ineffable: imagination, possibility, the creative hum that lives between intention and page. Each tendril represents one pen name.</td>
+        </tr>
+        <tr>
+          <td>The Wax Seal</td>
+          <td>A small circular wax seal to the right of the inkwell, bearing the I&amp;A monogram — suggesting authentication, closure, and the mark of a press</td>
+          <td>The imprimatur. The studio's certification that what follows meets the standard.</td>
+        </tr>
+        <tr>
+          <td>The Quill/Glass Pen</td>
+          <td>A single writing instrument resting against the seal — minimal, elegant</td>
+          <td>The instrument that connects craft to aether. The author's physical presence in the act of world-making.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Logo Versions</div>
+    <table>
+      <thead>
+        <tr><th>Version</th><th>Background</th><th>Use When</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Primary — Dark</td><td>Void Black or Deep Dark backgrounds</td><td>Default use: copyright pages, spine, dark social assets, colophon pages</td></tr>
+        <tr><td>Reversed — Light</td><td>Parchment or Cream backgrounds</td><td>Print documents, light-bg assets, press materials</td></tr>
+        <tr><td>Gold Metallic</td><td>Any background — gold foil effect</td><td>Special edition covers, merchandise, high-end press materials</td></tr>
+        <tr><td>Embossed / Stamp</td><td>Single color, textured</td><td>Physical packaging, bookmarks, wax seal application reference</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Logo Usage Rules</div>
+    <ul class="rule-list do-list">
+      <li>Always use the mark with clear space equal to the height of the "I" in Studios on all four sides</li>
+      <li>Use Primary Dark version as the default — it is the most versatile</li>
+      <li>Scale the full lockup (mark + wordmark + "Literary Press") together — never separate elements</li>
+      <li>Minimum size: 80px wide for digital; 0.75 inch for print</li>
+    </ul>
+    <ul class="rule-list dont-list" style="margin-top:16px;">
+      <li>Never place on a busy photographic background without a contained dark card or overlay behind it</li>
+      <li>Never recolor the mark outside the four approved versions</li>
+      <li>Never stretch, rotate, or alter proportions</li>
+      <li>Never use the mark in a context that implies humor, lightness, or parody</li>
+      <li>Never use just the inkwell icon without the wordmark in public-facing materials until brand recognition is established</li>
+    </ul>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Wordmark — Typography</div>
+    <p>The wordmark is set in EB Garamond at tracked spacing. The studio name <strong>Ink &amp; Aether Studios</strong> appears in standard weight. The descriptor <em>Literary Press</em> appears below in Raleway Light, all caps, widely tracked. The combination signals: old craft, modern precision.</p>
+    <table>
+      <thead><tr><th>Element</th><th>Font</th><th>Treatment</th></tr></thead>
+      <tbody>
+        <tr><td>Ink &amp; Aether Studios</td><td>EB Garamond Regular</td><td>Letter-spaced at +0.08em; Mixed case; Gold on dark, Void on light</td></tr>
+        <tr><td>Literary Press</td><td>Raleway Light</td><td>All caps; Letter-spaced at +0.35em; Smaller — approx 40% of main name; Ash color on dark, Iron on light</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 3 — COLOR SYSTEM
+══════════════════════════════════════ -->
+<section class="section" id="color">
+  <span class="section-number">Section 03 — Color System</span>
+  <h2 class="section-title">The Studio Palette</h2>
+  <p class="section-lead">Deep neutrals. A single metallic. The color of old publishing houses and things built to last.</p>
+
+  <div class="subsection">
+    <div class="subsection-title">Core Palette — Five Foundational Colors</div>
+    <p>The studio palette is entirely distinct from all three imprint brands. It does not borrow J.P. White's warm gothics, Jade Black's dramatic plums, or Indigo Winter's deep indigos. It precedes all of them — the architectural ground they're all built on.</p>
+
+    <div class="palette-grid">
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#0E0C0A;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Void</span>
+          <span class="swatch-hex">#0E0C0A</span>
+          <span class="swatch-role">Hero backgrounds, deepest dark, spine and colophon</span>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#1A1714;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Deep Press</span>
+          <span class="swatch-hex">#1A1714</span>
+          <span class="swatch-role">Secondary backgrounds, card fills, nav and UI surfaces</span>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#2B2723;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Charcoal Binding</span>
+          <span class="swatch-hex">#2B2723</span>
+          <span class="swatch-role">Dividers, table backgrounds, tertiary surfaces</span>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#C9A96E;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Gilded Ink</span>
+          <span class="swatch-hex">#C9A96E</span>
+          <span class="swatch-role">THE single metallic. Rule lines, dividers, accent text, logo mark. Use with discipline.</span>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#EDE7DC;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Aged Parchment</span>
+          <span class="swatch-hex">#EDE7DC</span>
+          <span class="swatch-role">Primary text on dark, light background for reversed assets</span>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#F7F3ED;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Archive Cream</span>
+          <span class="swatch-hex">#F7F3ED</span>
+          <span class="swatch-role">Headline text on dark, hero text, maximum contrast moments</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection-title" style="margin-top:40px;">Supporting Neutrals</div>
+    <div class="palette-grid">
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#4A4540;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Iron Press</span>
+          <span class="swatch-hex">#4A4540</span>
+          <span class="swatch-role">Secondary borders, muted dividers</span>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#7A746D;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Letterpress Ash</span>
+          <span class="swatch-hex">#7A746D</span>
+          <span class="swatch-role">Body text on dark, captions, secondary metadata</span>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#B5AFA8;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Page Fog</span>
+          <span class="swatch-hex">#B5AFA8</span>
+          <span class="swatch-role">Subtext, labels, supporting hierarchy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-mark">✦</span></div>
+
+  <div class="subsection">
+    <div class="subsection-title">Color Use Rules</div>
+
+    <h4>The Single Metallic Rule</h4>
+    <p>Gilded Ink (#C9A96E) is the only metallic in the studio palette. It appears exactly once per design in a primary accent role. When it appears as a rule line, it does not also appear as a headline color. When it appears in the logo, it does not appear again as a background tint. One appearance. Maximum authority.</p>
+
+    <h4>Temperature Rule</h4>
+    <p>The studio palette reads as neutral-cool — not warm like J.P. White, not plum-deep like Jade Black. Never warm up the studio palette with golden backgrounds or saturated tones. The gold is metallic and measured, not warm and inviting. There is a difference.</p>
+
+    <h4>Distinction from Imprint Palettes</h4>
+    <table>
+      <thead><tr><th>Brand</th><th>Dominant Dark</th><th>Primary Light</th><th>Signature Accent</th></tr></thead>
+      <tbody>
+        <tr><td>Ink &amp; Aether Studios</td><td>Void #0E0C0A (neutral-cool)</td><td>Aged Parchment #EDE7DC</td><td>Gilded Ink #C9A96E (single metallic)</td></tr>
+        <tr><td>J.P. White</td><td>Blackvale Brown #1C1209 (warm)</td><td>Fog Cream #F5EFE6</td><td>Amber Candle #C4A882 (warm gold)</td></tr>
+        <tr><td>Jade Black</td><td>Deep Plum / Midnight Navy</td><td>Champagne / Ivory</td><td>Champagne Gold (dramatic)</td></tr>
+        <tr><td>Indigo Winter</td><td>Deep Space Indigo #1B1464</td><td>Frost White #F4F5F8</td><td>Nebula Gold #C9A84C</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 — TYPOGRAPHY
+══════════════════════════════════════ -->
+<section class="section" id="typography">
+  <span class="section-number">Section 04 — Typography</span>
+  <h2 class="section-title">The Type System</h2>
+  <p class="section-lead">Three fonts. Clear hierarchy. Literary weight without decorative excess.</p>
+
+  <div class="subsection">
+    <div class="subsection-title">The Font System — Canva Pro</div>
+    <table>
+      <thead><tr><th>Font</th><th>Role</th><th>Use When</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>EB Garamond</td>
+          <td>Display / Primary — all studio-level headlines, the wordmark, major statements</td>
+          <td>Studio name, publication announcements, colophon text, milestone posts</td>
+        </tr>
+        <tr>
+          <td>Cormorant Garamond Italic</td>
+          <td>Editorial voice — studio quotes, taglines, philosophical or expressive studio-level language</td>
+          <td>The studio brand statement in graphics; editorial captions; ceremonial moments</td>
+        </tr>
+        <tr>
+          <td>Raleway</td>
+          <td>Structure / Metadata — all organizing text: labels, dates, platform handles, CTAs</td>
+          <td>Version numbers, dates, "Literary Press" descriptor, technical information, categories</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <span class="callout-label">Why This System Matters</span>
+      <p>Each imprint owns a primary display font. J.P. White leads with Playfair Display. Indigo Winter leads with EB Garamond. Jade Black leads with Cormorant Garamond. The studio uses <em>all three</em> — because the studio is the parent of all three — but as a blended system, not a single imprint voice. The Raleway structural layer is the constant: clean, modern, the organizing intelligence behind every piece of studio communication.</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Type Specimens</div>
+
+    <div class="type-specimen">
+      <span class="specimen-label">EB Garamond — Studio Display</span>
+      <div class="specimen-garamond-display">Ink &amp; Aether Studios</div>
+      <div class="specimen-garamond-text">Worlds that feel inevitable — like they were always real<br>and you only just found them.</div>
+    </div>
+
+    <div class="type-specimen">
+      <span class="specimen-label">Cormorant Garamond Italic — Studio Editorial Voice</span>
+      <div class="specimen-cormorant">Every book carries the fingerprint of its making.<br>Ink &amp; Aether Studios trusts the reader to feel it.</div>
+    </div>
+
+    <div class="type-specimen">
+      <span class="specimen-label">Raleway — Structure &amp; Metadata</span>
+      <div class="specimen-raleway">Literary Press · Est. 2026 · Ink &amp; Aether Studios · J.P. White · Jade Black · Indigo Winter</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Hierarchy — Sizing Guide (1080×1080 base)</div>
+    <table>
+      <thead><tr><th>Level</th><th>Font</th><th>Size</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Studio Headline</td><td>EB Garamond Regular</td><td>48–64pt</td><td>Studio name, major announcements. Never bold — weight comes from scale.</td></tr>
+        <tr><td>Brand Statement</td><td>Cormorant Garamond Italic</td><td>28–36pt</td><td>The studio's editorial voice. Centered. Breathing room above and below.</td></tr>
+        <tr><td>Imprint Names</td><td>EB Garamond Regular</td><td>22–28pt</td><td>When all three pen names appear together in studio-level assets</td></tr>
+        <tr><td>Studio Label</td><td>Raleway SemiBold</td><td>11–14pt</td><td>All caps, widely tracked. "INK &amp; AETHER STUDIOS" or "LITERARY PRESS"</td></tr>
+        <tr><td>Metadata / Fine Print</td><td>Raleway Light</td><td>9–11pt</td><td>Version, date, platform handle, copyright line</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 5 — VOICE & TONE
+══════════════════════════════════════ -->
+<section class="section" id="voice">
+  <span class="section-number">Section 05 — Voice &amp; Tone</span>
+  <h2 class="section-title">How the Studio Speaks</h2>
+  <p class="section-lead">The studio voice is distinct from all three pen names. It does not tell stories. It introduces the people who do.</p>
+
+  <div class="subsection">
+    <div class="subsection-title">Voice Characteristics</div>
+    <table>
+      <thead><tr><th>Quality</th><th>What It Sounds Like</th><th>What It Does Not Sound Like</th></tr></thead>
+      <tbody>
+        <tr><td>Authoritative but not distant</td><td>"Ink &amp; Aether Studios publishes three writers. All of them are worth your time."</td><td>"We're so excited to share..."</td></tr>
+        <tr><td>Proud without performing</td><td>"This book took three years. It shows."</td><td>"After YEARS of hard work we are THRILLED to..."</td></tr>
+        <tr><td>Sparse and unhurried</td><td>Short sentences. Confident pauses. Lets the work speak first.</td><td>Lists of adjectives. Hype language. Superlatives.</td></tr>
+        <tr><td>Institutional with warmth</td><td>The warmth is in the precision — the care taken — not in exclamation points.</td><td>Casual, chatty, or confessional</td></tr>
+        <tr><td>Singular perspective</td><td>One founder. One standard. The studio's credibility lives in its specificity.</td><td>Royal "we" used insincerely; anonymous corporate voice</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Voice Examples — Studio vs. Imprint</div>
+
+    <h4>Launch Announcement</h4>
+    <p><strong>Studio voice (Ink &amp; Aether):</strong> <em>"The Ember Mill Haunting publishes Tuesday. J.P. White's second book. Read it in one sitting or take your time — it rewards both."</em></p>
+    <p><strong>Imprint voice (J.P. White):</strong> <em>"I've been carrying this story for two years. Blackvale is waiting. See you Tuesday — Sylvia and Miles are ready."</em></p>
+
+    <h4>Annual Recap</h4>
+    <p><strong>Studio voice:</strong> <em>"Year one: four books published. Zero debt accumulated. All three pen names active. This is what sustainable looks like from the inside."</em></p>
+
+    <h4>About the Press</h4>
+    <p><strong>Studio voice:</strong> <em>"Ink &amp; Aether Studios is an independent literary press. We publish fiction where worlds feel inevitable. We are one founder, three pen names, and a standard we do not negotiate."</em></p>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">The Studio Does Not</div>
+    <ul class="rule-list dont-list">
+      <li>Perform vulnerability or exhaustion publicly — that is the founder's personal voice, not the studio's</li>
+      <li>Engage in publishing discourse, controversy, or platform debates</li>
+      <li>Compare itself to other indie publishers or traditional publishing</li>
+      <li>Apologize for its prices, its pace, its decisions, or its choices</li>
+      <li>Use hype language: "game-changing," "unmissable," "stunning," "you've never seen anything like this"</li>
+      <li>Ask for validation from readers, reviewers, or the market</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 6 — IMPRINT ARCHITECTURE
+══════════════════════════════════════ -->
+<section class="section" id="imprints">
+  <span class="section-number">Section 06 — Imprint Architecture</span>
+  <h2 class="section-title">The Studio &amp; Its Imprints</h2>
+  <p class="section-lead">Three distinct brands. One publishing standard. The studio is the house. The imprints are the rooms.</p>
+
+  <div class="imprint-grid">
+    <div class="imprint-card">
+      <span class="imprint-card-label">Imprint One</span>
+      <span class="imprint-card-name">J.P. White</span>
+      <p>Southern gothic mystery and atmospheric fiction. Blue Ridge fog, bayou heat, coastal secrets. Literary warmth with rot underneath. The genre house of the studio.</p>
+    </div>
+    <div class="imprint-card">
+      <span class="imprint-card-label">Imprint Two</span>
+      <span class="imprint-card-name">Jade Black</span>
+      <p>Romance, gothic fantasy, and romantic suspense. Sensual, dramatic, emotionally devastating. The heart house of the studio.</p>
+    </div>
+    <div class="imprint-card">
+      <span class="imprint-card-label">Imprint Three</span>
+      <span class="imprint-card-name">Indigo Winter</span>
+      <p>Speculative fiction — sci-fi, fantasy, action-driven world-building. Cosmic, precise, defiant. The horizon house of the studio.</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Hierarchy of Appearance — When the Studio Shows</div>
+    <p>The studio name does not compete with the imprint name on any individual book. The relationship follows the Criterion/Pixar model:</p>
+
+    <table>
+      <thead><tr><th>Context</th><th>What Appears</th><th>Prominence</th></tr></thead>
+      <tbody>
+        <tr><td>Book cover</td><td>Pen name only — J.P. White, Jade Black, or Indigo Winter</td><td>Pen name is primary. Studio colophon may appear on spine or back cover, small.</td></tr>
+        <tr><td>Copyright page</td><td>"Published by Ink &amp; Aether Studios" — full legal presence</td><td>Standard publisher line. Authoritative, not decorative.</td></tr>
+        <tr><td>Social media — imprint accounts</td><td>Pen name account branding only</td><td>Studio name may appear in bio as "An Ink &amp; Aether Studios imprint"</td></tr>
+        <tr><td>Social media — studio account</td><td>Studio branding fully present</td><td>Studio is the subject. Imprints are introduced as part of the studio family.</td></tr>
+        <tr><td>Launch graphics (studio voice)</td><td>Studio mark + book cover + pen name</td><td>Balanced. The studio is the certifier; the pen name is the author.</td></tr>
+        <tr><td>Press materials / media kit</td><td>Full studio identity — mark, wordmark, all three imprint descriptions</td><td>Studio is the primary entity. Imprints are introduced as belonging to it.</td></tr>
+        <tr><td>Merchandise</td><td>Studio mark as standalone or combined with imprint mark</td><td>Flexible — depends on whether merchandise is studio-branded or series-specific</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">What the Studio Brand Is NOT</div>
+    <ul class="rule-list dont-list">
+      <li>A fourth pen name or author identity — the studio has no books of its own</li>
+      <li>A "presents" label that borrows the author's reputation — it certifies independently</li>
+      <li>Louder than any individual imprint on any individual book — the studio whispers; the pen name speaks</li>
+      <li>Tied to any single genre, tone, or audience — it spans all three imprints deliberately</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 7 — STUDIO PRESENCE
+══════════════════════════════════════ -->
+<section class="section" id="presence">
+  <span class="section-number">Section 07 — Studio Presence</span>
+  <h2 class="section-title">Where the Studio Lives</h2>
+  <p class="section-lead">Infrastructure foundation now. Public presence built deliberately toward later.</p>
+
+  <div class="subsection">
+    <div class="subsection-title">Phase One — Infrastructure (Now Through 2027)</div>
+    <p>The studio brand does not need a public-facing presence before the catalog exists. The Pixar model only works because Pixar had a catalog. Build the foundation now; activate the public presence when there are enough titles to introduce the pattern.</p>
+
+    <div class="context-grid">
+      <div class="context-card">
+        <span class="context-card-phase">Active Now</span>
+        <div class="context-card-title">Publishing Infrastructure</div>
+        <p>Copyright pages, spine credits, "Published by" KDP lines, ISBN registration, legal entity if applicable. The studio exists on the books before it exists in public.</p>
+      </div>
+      <div class="context-card">
+        <span class="context-card-phase">Active Now</span>
+        <div class="context-card-title">Studio-Voice Launch Graphics</div>
+        <p>A small number of launch assets in the studio's voice — distinct from pen-name launch assets. These introduce the press as a certifying entity around major launch milestones.</p>
+      </div>
+      <div class="context-card">
+        <span class="context-card-phase">Active Now</span>
+        <div class="context-card-title">Author Bios — Studio Credit Line</div>
+        <p>All three pen name bios include the phrase: "An Ink &amp; Aether Studios author." This plants the studio name in every reader's peripheral vision from the first book forward.</p>
+      </div>
+      <div class="context-card">
+        <span class="context-card-phase">Active Now</span>
+        <div class="context-card-title">Internal Brand Documentation</div>
+        <p>This document. Brand Kits in Canva. The AETHER Framework. These exist to keep the studio consistent across years and pen names even before a reader ever sees the mark.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Phase Two — Public Presence (2027–2028 Target)</div>
+    <p>When the catalog reaches six or more titles across multiple pen names, the studio's public presence can begin. The Pixar pattern: readers who loved one pen name's book discover another pen name's book through the shared studio mark. The cross-promotion becomes organic.</p>
+
+    <div class="context-grid">
+      <div class="context-card">
+        <span class="context-card-phase">Phase Two</span>
+        <div class="context-card-title">Studio Social Account</div>
+        <p>A single Ink &amp; Aether Studios account (Instagram primary) that introduces the studio, its three authors, and its standard. Content: catalog spotlights, studio milestones, cross-imprint discovery posts.</p>
+      </div>
+      <div class="context-card">
+        <span class="context-card-phase">Phase Two</span>
+        <div class="context-card-title">Studio Website</div>
+        <p>A minimal site — not a blog, not a newsletter hub. A landing page: the three pen names, the studio's statement, a catalog. The digital equivalent of a publisher's colophon page.</p>
+      </div>
+      <div class="context-card">
+        <span class="context-card-phase">Phase Two</span>
+        <div class="context-card-title">Media Kit</div>
+        <p>A press-ready document: studio overview, all three pen names introduced, catalog list, sales data (if shareable), and contact information. For libraries, retailers, and press inquiries.</p>
+      </div>
+      <div class="context-card">
+        <span class="context-card-phase">Phase Two</span>
+        <div class="context-card-title">Cross-Imprint Discovery Assets</div>
+        <p>Back matter language: "If you loved this book, Ink &amp; Aether Studios publishes two other authors whose work you may find inevitable." With covers. With links.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Platform Specs — Studio Assets</div>
+    <table>
+      <thead><tr><th>Asset</th><th>Canvas Size</th><th>Template Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Instagram Feed Post</td><td>1080 × 1080 px</td><td>Dark template. Studio mark top-left at 60px. EB Garamond headline. Raleway metadata. No warm overlays — the studio palette is cool-neutral.</td></tr>
+        <tr><td>Instagram Story</td><td>1080 × 1920 px</td><td>Studio mark centered or top-right. Keep text out of top 250px and bottom 340px. Full-bleed dark background preferred.</td></tr>
+        <tr><td>Studio Email Header</td><td>600 × 200 px</td><td>Void background. Studio mark left. "INK &amp; AETHER STUDIOS" centered in Raleway. Gilded Ink rule lines top and bottom. Export at 2x (1200×400) for retina.</td></tr>
+        <tr><td>Studio Website Banner</td><td>1440 × 600 px</td><td>When website exists. Full-bleed dark. Studio mark and wordmark centered. The studio statement in Cormorant Italic below.</td></tr>
+        <tr><td>Amazon Author Page — Studio</td><td>3000 × 600 px</td><td>If a studio-level Amazon presence is created. Three pen name covers displayed as a catalog. Studio wordmark and statement.</td></tr>
+        <tr><td>Media Kit Cover</td><td>Letter, portrait</td><td>Void background cover page. Studio mark centered. Full studio name and "Media Kit [Year]" in Raleway below.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 8 — GRAPHIC ELEMENTS
+══════════════════════════════════════ -->
+<section class="section" id="assets">
+  <span class="section-number">Section 08 — Graphic Elements &amp; Asset Checklist</span>
+  <h2 class="section-title">Studio Graphic System &amp; Build Checklist</h2>
+  <p class="section-lead">The studio's graphic language is minimal by design. The mark does the work. Everything else organizes the space around it.</p>
+
+  <div class="subsection">
+    <div class="subsection-title">Core Graphic Elements — Brand-Wide</div>
+    <table>
+      <thead><tr><th>Element</th><th>Description</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>Thin Rule Line</td><td>Single 1px horizontal line in Gilded Ink — the most-used studio graphic element</td><td>Divides studio name from descriptor; frames content areas; separates imprint listings</td></tr>
+        <tr><td>Star Divider ✦</td><td>The ✦ character, or ✦ ── ✦ formation, in Gilded Ink</td><td>Section breaks in studio content; appears in colophon pages; connects the studio to imprint language</td></tr>
+        <tr><td>Studio Mark</td><td>The inkwell/aether/seal symbol — always in an approved color version</td><td>Appears on every studio-level asset; colophon; social assets; media kit</td></tr>
+        <tr><td>Grain Texture</td><td>Noise/grain overlay at 6–10% opacity on background — studio-approved</td><td>Adds archival depth to digital assets; prevents flat-screen coldness</td></tr>
+        <tr><td>Dark Vignette</td><td>Radial vignette fading from edges inward — reinforces studio's atmospheric, enclosed quality</td><td>Photo-based studio assets; launch graphics; social posts with photography</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">What the Studio Palette Avoids</div>
+    <ul class="rule-list dont-list">
+      <li>Warm, amber-toned overlays — those belong to J.P. White</li>
+      <li>Plum, rose, or dramatic romantic elements — those belong to Jade Black</li>
+      <li>Deep indigo, neon, or circuit-grid textures — those belong to Indigo Winter</li>
+      <li>Watercolor, floral, or hand-painted elements — no imprint uses these at studio level</li>
+      <li>Bright backgrounds, white fields, or high-key photography — the studio lives in the dark</li>
+      <li>Generic "publisher" stock imagery (stacks of books, quills on paper) — the mark is the visual, not stock photos</li>
+    </ul>
+  </div>
+
+  <div class="divider"><span class="divider-mark">✦</span></div>
+
+  <div class="subsection">
+    <div class="subsection-title">Phase One Asset Checklist — Build Before First Studio-Level Use</div>
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Mark — Primary Dark (SVG + PNG 1000px)
+          <span class="check-note">Inkwell + aether smoke + wax seal. Commission or build in Canva using Section 02 brief.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Mark — Reversed Light (SVG + PNG 1000px)
+          <span class="check-note">For parchment or cream backgrounds; print use.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Mark — Gold Metallic (SVG + PNG 1000px)
+          <span class="check-note">For special editions, merchandise, premium print materials.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Wordmark — Full Lockup (SVG: mark + "Ink & Aether Studios" + "Literary Press")
+          <span class="check-note">EB Garamond + Raleway. Primary and reversed versions.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Canva Brand Kit — "Ink & Aether Studios — Core" loaded
+          <span class="check-note">9 palette colors + font stack (EB Garamond / Cormorant Garamond / Raleway) + logos uploaded.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Email Header — 600×200px (export at 2x)
+          <span class="check-note">Void background. Mark left. Studio name centered. Gilded Ink rules top and bottom.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Launch Graphic Template — 1080×1080px
+          <span class="check-note">Reusable base: dark background, studio mark, book cover display area, studio statement line.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Colophon Text Block — finalized and approved
+          <span class="check-note">"Published by Ink & Aether Studios" + address/URL + legal boilerplate. Ready to drop into every KDP interior.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Author Bio Credit Line — finalized
+          <span class="check-note">"[Pen Name] is an Ink & Aether Studios author." Consistent across all three pen names.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Phase Two Asset Checklist — Build When Catalog Reaches 6+ Titles</div>
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Social Account — Instagram handle confirmed
+          <span class="check-note">@inkandaetherstudios or @inkandaether — check availability before Phase Two begins.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Instagram Profile Graphic + Bio finalized</div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Website — Minimal Landing Page (live)
+          <span class="check-note">Studio statement + three imprint introductions + catalog list. No blog required.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Media Kit — Studio (PDF, current year)
+          <span class="check-note">Studio overview + pen name introductions + catalog + contact info.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Cross-Imprint Discovery Back Matter — Language finalized
+          <span class="check-note">"If you loved this, Ink & Aether Studios also publishes..." + covers + links.</span>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <div class="check-label">Studio Catalog Graphic — All Published Titles (social asset)
+          <span class="check-note">Annual update. Shows the full catalog in one visual. Studio voice.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Canva Folder Structure — Studio Level</div>
+    <ul class="rule-list">
+      <li><strong>00 Studio — Brand Foundation</strong> — All mark versions (SVG + PNG), wordmark files, color swatch references, the ✦ divider PNG</li>
+      <li><strong>01 Studio — Templates</strong> — Launch graphic template, email header, social post base, media kit cover. Never deleted, never overwritten. Duplicate before modifying.</li>
+      <li><strong>02 Studio — Launch Assets by Year</strong> — Studio-voice launch graphics organized by title and year</li>
+      <li><strong>03 Studio — Annual Catalog</strong> — Catalog graphic, updated each year with new titles added</li>
+      <li><strong>04 Studio — Phase Two</strong> — Website assets, media kit, social account graphics. Empty until Phase Two activation.</li>
+    </ul>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Naming Convention</div>
+    <ul class="rule-list">
+      <li>Format: <strong>IAS-[Category]-[AssetType]-[Version]</strong></li>
+      <li>Example: IAS-Foundation-LogoPrimary-v1.svg</li>
+      <li>Example: IAS-Launch-EmberMill-StudioGraphic-v1.png</li>
+      <li>Example: IAS-Template-LaunchBase-1080x1080-v1</li>
+      <li>IAS = Ink &amp; Aether Studios. Keeps studio files visually distinct from imprint files in shared folders.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<div class="doc-footer">
+  <span class="footer-ornament">✦  ──  ✦</span>
+  <p>Ink &amp; Aether Studios · Brand &amp; Visual Identity Guide · Version 1.0 · 2026</p>
+  <p style="margin-top:10px;">Internal Reference · Not for Distribution · All Rights Reserved</p>
+</div>
+
+</div><!-- end .page -->
+</body>
+</html>
