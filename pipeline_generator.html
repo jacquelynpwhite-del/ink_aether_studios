@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indie Publishing Pipeline Generator</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #d1d5db;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2 { margin-top: 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 0.55rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    button {
+      cursor: pointer;
+      background: var(--accent);
+      color: white;
+      border: none;
+      font-weight: 600;
+    }
+
+    button.secondary {
+      background: #111827;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .book-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .muted { color: var(--muted); font-size: 0.9rem; }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.55rem;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #eef2ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Indie Publishing Pipeline Generator</h1>
+      <p class="muted">
+        Enter your books for a year. This tool assigns release months by pen-name schedule,
+        then auto-builds Drafting, Revision, Production, and Launch phases with overlap.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>1) Inputs</h2>
+      <div class="grid">
+        <div>
+          <label for="yearInput">Year</label>
+          <input id="yearInput" type="number" value="2026" min="2000" max="2100" />
+        </div>
+        <div>
+          <label for="bookCountInput">Number of books</label>
+          <input id="bookCountInput" type="number" value="4" min="1" max="24" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="buildBookInputsBtn" type="button">Build Book Inputs</button>
+        <button id="generateBtn" type="button" class="secondary">Generate Pipeline</button>
+      </div>
+
+      <div id="bookInputsContainer" style="margin-top: 1rem;"></div>
+    </div>
+
+    <div class="card">
+      <h2>2) Output</h2>
+      <div class="actions" style="max-width: 280px;">
+        <button id="downloadCsvBtn" type="button">Download CSV</button>
+      </div>
+      <p class="muted">
+        Columns: Month, Pen Name, Book Title, Phase, Week Breakdown, Status
+      </p>
+      <div class="table-wrap">
+        <table id="pipelineTable">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Pen Name</th>
+              <th>Book Title</th>
+              <th>Phase</th>
+              <th>Week Breakdown</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Fixed release schedule by pen name.
+    const scheduleByPen = {
+      "J.P. White": [1, 7],
+      "Jade Black": [3, 4, 11],
+      "Indigo Winter": [5, 6, 9, 10]
+    };
+
+    let latestRows = [];
+
+    const yearInput = document.getElementById("yearInput");
+    const bookCountInput = document.getElementById("bookCountInput");
+    const bookInputsContainer = document.getElementById("bookInputsContainer");
+    const buildBookInputsBtn = document.getElementById("buildBookInputsBtn");
+    const generateBtn = document.getElementById("generateBtn");
+    const downloadCsvBtn = document.getElementById("downloadCsvBtn");
+    const pipelineTbody = document.querySelector("#pipelineTable tbody");
+
+    function createBookInputs() {
+      const count = Number(bookCountInput.value) || 0;
+      bookInputsContainer.innerHTML = "";
+
+      for (let i = 0; i < count; i += 1) {
+        const row = document.createElement("div");
+        row.className = "book-row";
+
+        row.innerHTML = `
+          <div>
+            <label>Book ${i + 1} Title</label>
+            <input type="text" class="book-title" placeholder="Book ${i + 1} title" />
+          </div>
+          <div>
+            <label>Pen Name</label>
+            <select class="book-pen-name">
+              <option>J.P. White</option>
+              <option>Jade Black</option>
+              <option>Indigo Winter</option>
+            </select>
+          </div>
+        `;
+
+        bookInputsContainer.appendChild(row);
+      }
+    }
+
+    function addMonths(date, delta) {
+      return new Date(date.getFullYear(), date.getMonth() + delta, 1);
+    }
+
+    function toMonthString(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      return `${y}-${m}-01`;
+    }
+
+    // Assign release months based on pen schedule.
+    // If slots for a pen are full in the selected year, it spills into next year.
+    function assignReleaseDate(baseYear, penName, usedSlotsMap) {
+      const penSlots = scheduleByPen[penName];
+      let year = baseYear;
+
+      while (true) {
+        for (const month of penSlots) {
+          const key = `${penName}-${year}-${month}`;
+          if (!usedSlotsMap.has(key)) {
+            usedSlotsMap.add(key);
+            return new Date(year, month - 1, 1);
+          }
+        }
+        year += 1;
+      }
+    }
+
+    function phaseAndWeeks(monthsBeforeRelease) {
+      if (monthsBeforeRelease === 5) {
+        return {
+          phase: "Drafting",
+          weeks: "W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%"
+        };
+      }
+      if (monthsBeforeRelease === 4) {
+        return {
+          phase: "Drafting",
+          weeks: "W5 Draft 100%; W6 Cleanup + notes"
+        };
+      }
+      if (monthsBeforeRelease === 3) {
+        return {
+          phase: "Revision",
+          weeks: "W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5)"
+        };
+      }
+      if (monthsBeforeRelease === 2) {
+        return {
+          phase: "Revision",
+          weeks: "W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer"
+        };
+      }
+      if (monthsBeforeRelease === 1) {
+        return {
+          phase: "Production",
+          weeks: "W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send"
+        };
+      }
+      return {
+        phase: "Launch",
+        weeks: "W1 ARC + release prep; W2 Release + promo"
+      };
+    }
+
+    function generateRows(books, baseYear) {
+      const rows = [];
+      const usedSlots = new Set();
+
+      books.forEach((book) => {
+        const releaseDate = assignReleaseDate(baseYear, book.penName, usedSlots);
+
+        // Create overlapping pipeline from release-5 months to release month.
+        for (let offset = 5; offset >= 0; offset -= 1) {
+          const monthDate = addMonths(releaseDate, -offset);
+          const details = phaseAndWeeks(offset);
+
+          rows.push({
+            month: toMonthString(monthDate),
+            penName: book.penName,
+            bookTitle: book.title,
+            phase: details.phase,
+            weekBreakdown: details.weeks,
+            status: "Planned"
+          });
+        }
+      });
+
+      rows.sort((a, b) => {
+        if (a.month < b.month) return -1;
+        if (a.month > b.month) return 1;
+        return a.penName.localeCompare(b.penName);
+      });
+
+      return rows;
+    }
+
+    function renderTable(rows) {
+      pipelineTbody.innerHTML = "";
+      rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${row.month}</td>
+          <td>${row.penName}</td>
+          <td>${row.bookTitle}</td>
+          <td>${row.phase}</td>
+          <td>${row.weekBreakdown}</td>
+          <td>${row.status}</td>
+        `;
+        pipelineTbody.appendChild(tr);
+      });
+    }
+
+    function toCsv(rows) {
+      const headers = ["Month", "Pen Name", "Book Title", "Phase", "Week Breakdown", "Status"];
+      const escapeCsv = (value) => {
+        const str = String(value ?? "");
+        return /[",\n]/.test(str) ? `"${str.replace(/"/g, '""')}"` : str;
+      };
+
+      const lines = [headers.join(",")];
+      rows.forEach((row) => {
+        lines.push([
+          row.month,
+          row.penName,
+          row.bookTitle,
+          row.phase,
+          row.weekBreakdown,
+          row.status
+        ].map(escapeCsv).join(","));
+      });
+
+      return lines.join("\n");
+    }
+
+    function downloadCsv(rows) {
+      if (!rows.length) {
+        alert("Generate a pipeline first.");
+        return;
+      }
+
+      const csvText = toCsv(rows);
+      const blob = new Blob([csvText], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `monthly_pipeline_${yearInput.value}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function getBooksFromForm() {
+      const titles = [...document.querySelectorAll(".book-title")];
+      const pens = [...document.querySelectorAll(".book-pen-name")];
+
+      const books = titles.map((titleInput, i) => ({
+        title: titleInput.value.trim() || `Untitled Book ${i + 1}`,
+        penName: pens[i].value
+      }));
+
+      return books;
+    }
+
+    buildBookInputsBtn.addEventListener("click", createBookInputs);
+
+    generateBtn.addEventListener("click", () => {
+      const year = Number(yearInput.value);
+      if (!year || year < 2000 || year > 2100) {
+        alert("Enter a valid year (2000-2100).");
+        return;
+      }
+
+      const books = getBooksFromForm();
+      if (!books.length) {
+        alert("Please build book inputs first.");
+        return;
+      }
+
+      latestRows = generateRows(books, year);
+      renderTable(latestRows);
+    });
+
+    downloadCsvBtn.addEventListener("click", () => downloadCsv(latestRows));
+
+    // Start with default inputs so beginners can try quickly.
+    createBookInputs();
+  </script>
+</body>
+</html>

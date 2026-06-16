@@ -1,0 +1,61 @@
+Month,Pen Name,Book Title,Phase,Week Breakdown,Status
+2025-08-01,J.P. White,JPW-2026-Winter,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Active
+2025-09-01,J.P. White,JPW-2026-Winter,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2025-10-01,J.P. White,JPW-2026-Winter,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2025-11-01,J.P. White,JPW-2026-Winter,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2025-12-01,J.P. White,JPW-2026-Winter,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2026-01-01,J.P. White,JPW-2026-Winter,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2025-11-01,Jade Black,JB-2026-Spring,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2025-12-01,Jade Black,JB-2026-Spring,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2026-01-01,Jade Black,JB-2026-Spring,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2026-02-01,Jade Black,JB-2026-Spring,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2026-03-01,Jade Black,JB-2026-Spring,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2026-04-01,Jade Black,JB-2026-Spring,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2026-01-01,Indigo Winter,IW-2026-Summer,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2026-02-01,Indigo Winter,IW-2026-Summer,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2026-03-01,Indigo Winter,IW-2026-Summer,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2026-04-01,Indigo Winter,IW-2026-Summer,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2026-05-01,Indigo Winter,IW-2026-Summer,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2026-06-01,Indigo Winter,IW-2026-Summer,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2026-06-01,Jade Black,JB-2026-Fall,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2026-07-01,Jade Black,JB-2026-Fall,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2026-08-01,Jade Black,JB-2026-Fall,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2026-09-01,Jade Black,JB-2026-Fall,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2026-10-01,Jade Black,JB-2026-Fall,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2026-11-01,Jade Black,JB-2026-Fall,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2026-08-01,J.P. White,JPW-2027-Winter,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2026-09-01,J.P. White,JPW-2027-Winter,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2026-10-01,J.P. White,JPW-2027-Winter,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2026-11-01,J.P. White,JPW-2027-Winter,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2026-12-01,J.P. White,JPW-2027-Winter,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2027-01-01,J.P. White,JPW-2027-Winter,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2026-10-01,Jade Black,JB-2027-Spring,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2026-11-01,Jade Black,JB-2027-Spring,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2026-12-01,Jade Black,JB-2027-Spring,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2027-01-01,Jade Black,JB-2027-Spring,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2027-02-01,Jade Black,JB-2027-Spring,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2027-03-01,Jade Black,JB-2027-Spring,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2026-12-01,Indigo Winter,IW-2027-Summer-A,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2027-01-01,Indigo Winter,IW-2027-Summer-A,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2027-02-01,Indigo Winter,IW-2027-Summer-A,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2027-03-01,Indigo Winter,IW-2027-Summer-A,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2027-04-01,Indigo Winter,IW-2027-Summer-A,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2027-05-01,Indigo Winter,IW-2027-Summer-A,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2027-02-01,J.P. White,JPW-2027-Summer,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2027-03-01,J.P. White,JPW-2027-Summer,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2027-04-01,J.P. White,JPW-2027-Summer,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2027-05-01,J.P. White,JPW-2027-Summer,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2027-06-01,J.P. White,JPW-2027-Summer,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2027-07-01,J.P. White,JPW-2027-Summer,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2027-04-01,Indigo Winter,IW-2027-Fall,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2027-05-01,Indigo Winter,IW-2027-Fall,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2027-06-01,Indigo Winter,IW-2027-Fall,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2027-07-01,Indigo Winter,IW-2027-Fall,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2027-08-01,Indigo Winter,IW-2027-Fall,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2027-09-01,Indigo Winter,IW-2027-Fall,Launch,W1 ARC + release prep; W2 Release + promo,Planned
+2027-06-01,Jade Black,JB-2027-Fall,Drafting,W1 Outline; W2 Draft 25%; W3 Draft 50%; W4 Draft 75%,Planned
+2027-07-01,Jade Black,JB-2027-Fall,Drafting,W5 Draft 100%; W6 Cleanup + notes,Planned
+2027-08-01,Jade Black,JB-2027-Fall,Revision,W1 Dev edits (D2); W2 Line edits (D3); W3 Copy edits (D4); W4 Proof (D5),Planned
+2027-09-01,Jade Black,JB-2027-Fall,Revision,W5 Beta pass (D6); W6 Final polish (D7); W7 Prep handoff; W8 Buffer,Planned
+2027-10-01,Jade Black,JB-2027-Fall,Production,W1 Typeset; W2 Cover + metadata; W3 Upload QA; W4 ARC send,Planned
+2027-11-01,Jade Black,JB-2027-Fall,Launch,W1 ARC + release prep; W2 Release + promo,Planned
